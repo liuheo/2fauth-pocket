@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accounts_synced">%1$d 个账户 · 已同步</string>
+</resources>
