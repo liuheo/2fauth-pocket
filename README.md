@@ -7,6 +7,37 @@
 
 > 本项目是非官方客户端，目前处于测试阶段。需要已有的 2FAuth 服务，不是离线验证器，也不提供公共验证码托管服务。
 
+## 页面预览
+
+以下为 Android 模拟器中的实际界面。服务器域名、账号和验证码均为测试数据，仅用于演示，不包含真实 Token 或账号密钥。
+
+<table>
+  <tr>
+    <th>验证码首页 · 浅色</th>
+    <th>验证码首页 · 深色</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/home-light.png" alt="浅色首页：服务图标、分组与验证码倒计时" width="320"></td>
+    <td><img src="docs/screenshots/home-dark.png" alt="深色首页：验证码列表与添加按钮" width="320"></td>
+  </tr>
+  <tr>
+    <th>服务连接</th>
+    <th>添加账号</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/connection.png" alt="首次连接：填写自己的服务器地址和 API Token" width="320"></td>
+    <td><img src="docs/screenshots/editor-light.png" alt="添加账号：服务名称、账号、密钥与分组" width="320"></td>
+  </tr>
+  <tr>
+    <th>账号管理</th>
+    <th>设置 · 深色</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/detail-light.png" alt="账号管理底部弹窗" width="320"></td>
+    <td><img src="docs/screenshots/settings-dark.png" alt="设置：连接、安全与界面选项" width="320"></td>
+  </tr>
+</table>
+
 ## 功能
 
 | 功能 | 说明 |
@@ -31,7 +62,7 @@
 
 ## 安装与连接
 
-目前可使用项目提供的测试 APK，或[从源码构建](docs/BUILDING.md)。安装前请确认来源；测试构建不等同于正式发行版本。
+已发布版本可从 [GitHub Releases](https://github.com/liuheo/2fauth-pocket/releases) 下载 `.apk` 附件，无需解压。若尚无发行版本，可[从源码构建](docs/BUILDING.md)，或下载 Actions 中的 Debug 测试产物（ZIP 内包含 APK）。安装前请确认来源；测试构建不等同于正式发行版本。
 
 1. 打开自己的 2FAuth 网页，在 **Settings → OAUTH** 或 **Personal Access Tokens** 中创建客户端专用 Token。
 2. 启动应用，填写服务器网站根地址，例如 `https://2fa.example.com`。不要追加 `/api/v1`。

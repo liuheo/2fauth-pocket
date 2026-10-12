@@ -47,10 +47,21 @@ class UiSmokeTest {
             }
             instrumentation.waitForIdleSync()
             SystemClock.sleep(400)
-            val bitmap = instrumentation.uiAutomation.takeScreenshot()
+            val screen = instrumentation.uiAutomation.takeScreenshot()
+            var top = 0
+            var bottom = 0
+            main {
+                activity.window.decorView.rootWindowInsets?.let {
+                    top = it.systemWindowInsetTop
+                    bottom = it.systemWindowInsetBottom
+                }
+            }
+            // Documentation screenshots include only the app, not system bars.
+            val bitmap = Bitmap.createBitmap(screen, 0, top, screen.width, screen.height - top - bottom)
             val file = File(activity.getExternalFilesDir(null), "$name.png")
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
             bitmap.recycle()
+            if (screen !== bitmap) screen.recycle()
         }
         screenshot("connection")
         val now = SystemClock.elapsedRealtime()
